@@ -34,7 +34,7 @@ class MainWindow(tk.Frame):
         img_tk = ImageTk.PhotoImage(image=self.img_tk)
         self.frm_image.img_tk = img_tk
         self.frm_image.config(image=img_tk)
-        resolution_string = str(resolution[0]+200)+"x"+str(resolution[1]+20)
+        resolution_string = str(resolution[0] + 200) + "x" + str(resolution[1] + 20)
         self.master.geometry(resolution_string)
 
     def create_widgets(self, args):
@@ -77,25 +77,40 @@ class MainWindow(tk.Frame):
                                           height=3,
                                           text="Color format descripiton",
                                           font=self.widget_font,
-                                          borderwidth=0)
+                                          borderwidth=0,
+                                          state=tk.DISABLED)
         btn_color_description.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
 
         # Resolution change entry
-        frm_size = tk.Frame(master=frm_control, width=20, height=3, bg=self.bg_color)
+        frm_size = tk.Frame(master=frm_control,
+                            width=20, height=3,
+                            bg=self.bg_color)
 
-        frm_width = tk.Frame(master=frm_size, width=10)
-        text_height = tk.Label(master=frm_width, text="Width", bg=self.bg_color, font=self.widget_font)
-        text_height.pack(fill=tk.BOTH, side=tk.TOP, expand=True)
+        frm_width = tk.Frame(master=frm_size,
+                             width=10)
+        text_width = tk.Label(master=frm_width,
+                              text="Width",
+                              bg=self.bg_color,
+                              font=self.widget_font)
+        text_width.pack(fill=tk.BOTH, side=tk.TOP, expand=True)
         frm_width.pack(fill=tk.BOTH, side=tk.LEFT, expand=True, padx=2, pady=5)
 
-        frm_height = tk.Frame(master=frm_size, width=10)
-        text_height = tk.Label(master=frm_height, text="Height", bg=self.bg_color, font=self.widget_font)
+        frm_height = tk.Frame(master=frm_size,
+                              width=10)
+        text_height = tk.Label(master=frm_height,
+                               text="Height",
+                               bg=self.bg_color,
+                               font=self.widget_font)
         text_height.pack(fill=tk.BOTH, side=tk.TOP, expand=True)
         frm_height.pack(fill=tk.BOTH, side=tk.LEFT, expand=True, padx=2, pady=5)
 
-        self.ent_width = tk.Entry(master=frm_width, width=10, font=self.widget_font)
+        self.ent_width = tk.Entry(master=frm_width,
+                                  width=10,
+                                  font=self.widget_font)
         self.ent_width.insert(0, args["resolution"][0])
-        self.ent_height = tk.Entry(master=frm_height, width=10, font=self.widget_font)
+        self.ent_height = tk.Entry(master=frm_height,
+                                   width=10,
+                                   font=self.widget_font)
         self.ent_height.insert(0, args["resolution"][1])
         self.ent_height.pack(fill=tk.BOTH, expand=True, side=tk.LEFT)
         self.ent_width.pack(fill=tk.BOTH, expand=True, side=tk.LEFT)
@@ -107,7 +122,8 @@ class MainWindow(tk.Frame):
                                      height=3,
                                      text="Create a color format",
                                      font=self.widget_font,
-                                     borderwidth=0)
+                                     borderwidth=0,
+                                     state=tk.DISABLED)
         btn_create_color.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
 
         # Update image button
